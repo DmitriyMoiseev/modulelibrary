@@ -1,4 +1,4 @@
-package group.modulelibrary.rest;
+package group.modulelibrary;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,9 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = {"group.modulelibrary"})
 @EnableJpaRepositories(basePackages = {"group.modulelibrary"})
 @EntityScan(basePackages = {"group.modulelibrary"})
-public class RestApplication {
+public class TestApplication {
     public static void main(String[] args) {
-        SpringApplication.run(RestApplication.class);
+        SpringApplication.run(TestApplication.class);
     }
-
 }

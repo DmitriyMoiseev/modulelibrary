@@ -99,7 +99,7 @@ public class AuthorRestController {
         if (author == null)  {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            List<Book> bookList = this.authorService.getBooks(author);
+            List<Book> bookList = author.getBooks();
             return new ResponseEntity<>(bookMapper.toDtoBookList(bookList), HttpStatus.OK);
         }
     }

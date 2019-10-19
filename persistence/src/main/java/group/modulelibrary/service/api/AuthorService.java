@@ -6,8 +6,7 @@ import java.util.List;
 
 public interface AuthorService {
     List<Author> getAllAuthors();
-    void saveAuthor(Author author);
-    void deleteAuthor(Author author);
+    boolean saveAuthor(Author author);
+    Author deleteAuthor(Author author);
     Author getAuthorById(Integer id);
-    List<Book> getBooks(Author author);
 }

@@ -5,7 +5,7 @@ public class AuthorDto {
     private int authorId;
     private String firstName;
     private String lastName;
-    private String Patronymic;
+    private String patronymic;
 
     public int getAuthorId() {
         return authorId;
@@ -32,10 +32,10 @@ public class AuthorDto {
     }
 
     public String getPatronymic() {
-        return Patronymic;
+        return patronymic;
     }
 
     public void setPatronymic(String patronymic) {
-        Patronymic = patronymic;
+        this.patronymic = patronymic;
     }
 }

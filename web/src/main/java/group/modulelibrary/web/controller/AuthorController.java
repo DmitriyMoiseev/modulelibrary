@@ -76,7 +76,7 @@ public class AuthorController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("books");
         Author author = authorService.getAuthorById(id);
-        List<Book> books = authorService.getBooks(author);
+        List<Book> books = author.getBooks();
         modelAndView.addObject("bookList", books);
         return modelAndView;
     }

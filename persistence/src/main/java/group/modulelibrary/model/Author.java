@@ -14,7 +14,7 @@ public class Author {
 
     private String lastName;
 
-    private String Patronymic;
+    private String patronymic;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Book> books;
@@ -44,11 +44,11 @@ public class Author {
     }
 
     public String getPatronymic() {
-        return Patronymic;
+        return patronymic;
     }
 
     public void setPatronymic(String patronymic) {
-        Patronymic = patronymic;
+        this.patronymic = patronymic;
     }
 
     public List<Book> getBooks() {

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class BookServiceImpl implements BookService {
 
     private BookRepository bookRepository;
@@ -28,19 +29,24 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public boolean saveBook(Book book) {
-        Optional<Book> bookCandidate = bookRepository.findById(book.getBookId());
-        /*if(bookCandidate.isPresent()) {
-            return true;
+        Optional<Book> bookCandidate = bookRepository.findBookByTitle(book.getTitle());
+        if(bookCandidate.isPresent()) {
+            return false;
         } else {
             bookRepository.save(book);
             return true;
-        }*/
-        return false;
+        }
     }
 
     @Override
-    public void deleteBook(Book book) {
-        bookRepository.delete(book);
+    public boolean deleteBook(Book book) {
+        Optional<Book> bookCandidate = bookRepository.findById(book.getBookId());
+        if(bookCandidate.isPresent()) {
+            bookRepository.delete(book);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

@@ -5,9 +5,9 @@
     <title>Домашняя страница</title>
 </head>
 <body>
-<c:url value="/book" var="book"/>
+<c:url value="/book/" var="book"/>
 <h1><a href="${book}">КНИГИ</a></h1>
-<c:url value="/author" var="author"/>
+<c:url value="/author/" var="author"/>
 <h1><a href="${author}">АВТОРЫ</a></h1>
 </body>
 </html>
