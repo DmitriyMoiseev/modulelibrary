@@ -4,10 +4,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "author")
 public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private int authorId;
 
     private String firstName;
@@ -16,7 +18,7 @@ public class Author {
 
     private String patronymic;
 
-    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Book> books;
 
     public int getAuthorId() {

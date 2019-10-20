@@ -4,10 +4,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class Book implements Serializable {
+@Table(name = "book")
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private int bookId;
 
     private String title;

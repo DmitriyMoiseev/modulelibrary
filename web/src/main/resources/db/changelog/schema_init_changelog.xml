@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="19102019-create-author-table" author="dima.moiseev">
+        <createTable tableName="author">
+            <column name="id" type="Serial" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="first_name" type="TEXT"/>
+            <column name="last_name" type="TEXT"/>
+            <column name="patronymic" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="19102019-create-book-table" author="dima.moiseev">
+        <createTable tableName="book">
+            <column name="id" type="Serial" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="title" type="TEXT"/>
+            <column name="genre" type="TEXT"/>
+            <column name="edition" type="TEXT"/>
+            <column name="edition_year" type="TEXT"/>
+            <column name="author_id" type="integer">
+            <constraints nullable="false" foreignKeyName="fk_book_author" references="author(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="19102019-create-users-table" author="dima.moiseev">
+        <createTable tableName="users">
+            <column name="id" type="Serial" autoIncrement="true"/>
+            <column name="username" type="TEXT">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="TEXT"/>
+            <column name="accountNonExpired" type="boolean"/>
+            <column name="accountNonLocked" type="boolean"/>
+            <column name="credentialsNonExpired" type="boolean"/>
+            <column name="enabled" type="boolean"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="19102019-create-authorities-table" author="dima.moiseev">
+        <createTable tableName="authorities">
+            <column name="username" type="TEXT"/>
+            <column name="authority" type="TEXT"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
